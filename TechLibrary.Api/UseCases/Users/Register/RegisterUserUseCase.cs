@@ -1,4 +1,6 @@
-﻿using TechLibrary.Communication.Requests;
+﻿using TechLibrary.Api.Domain.Entities;
+using TechLibrary.Api.Infraestructure;
+using TechLibrary.Communication.Requests;
 using TechLibrary.Communication.Responses;
 using TechLibrary.Exception;
 
@@ -9,8 +11,19 @@ public class RegisterUserUseCase {
 
         Validate(request);
 
-        return new ResponseRegisteredUserJson {
+        var entity = new User {
+            Name = request.Name,
+            Email = request.Email,
+            Password = request.Password
+        };
 
+        var dbConext = new TechLibraryDbContext();
+
+        dbConext.Users.Add(entity);
+        dbConext.SaveChanges();
+
+        return new ResponseRegisteredUserJson {
+            Name = entity.Name,
         };
     }
 
