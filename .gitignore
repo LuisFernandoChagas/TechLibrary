@@ -5,6 +5,9 @@ TechLibrary.Api/obj/
 TechLibrary.Communication/bin/
 TechLibrary.Communication/obj/
 
+TechLibrary.Exception/bin/
+TechLibrary.Exception/obj/
+
 # Configurações do Visual Studio
 .vs/
 *.user
