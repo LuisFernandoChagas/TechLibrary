@@ -1,3 +1,41 @@
-.vs/
+# Pastas de build
+TechLibrary.Api/bin/
 TechLibrary.Api/obj/
+
+TechLibrary.Communication/bin/
 TechLibrary.Communication/obj/
+
+# Configurações do Visual Studio
+.vs/
+*.user
+*.suo
+*.sln.cache
+
+# Arquivos de log e depuração
+*.log
+*.pdb
+
+# Configurações temporárias e caches do .NET
+*.dbmdl
+*.cache
+project.lock.json
+project.assets.json
+project.nuget.cache
+
+# Configuração do usuário no Visual Studio Code
+.vscode/
+
+# Pacotes e dependências baixadas automaticamente
+packages/
+.nuget/
+
+# Arquivos do Swagger
+swagger/
+*.swagger
+
+# Configurações do ambiente (pode conter senhas!)
+appsettings.Development.json
+secrets.json
+
+# Outros arquivos desnecessários
+Thumbs.db
