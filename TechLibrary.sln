@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35806.99 d17.13
+VisualStudioVersion = 17.13.35806.99
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechLibrary.Api", "TechLibrary.Api\TechLibrary.Api.csproj", "{A051A3EF-EEE7-4041-B38B-C2D5ED26216A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechLibrary.Communication", "TechLibrary.Communication\TechLibrary.Communication.csproj", "{6729CF3C-4219-40E1-9F39-07BBD3319FAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechLibrary.Exception", "TechLibrary.Exception\TechLibrary.Exception.csproj", "{E27C90F8-4D81-4458-AC1D-748333ED884A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{6729CF3C-4219-40E1-9F39-07BBD3319FAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6729CF3C-4219-40E1-9F39-07BBD3319FAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6729CF3C-4219-40E1-9F39-07BBD3319FAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E27C90F8-4D81-4458-AC1D-748333ED884A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E27C90F8-4D81-4458-AC1D-748333ED884A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E27C90F8-4D81-4458-AC1D-748333ED884A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E27C90F8-4D81-4458-AC1D-748333ED884A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
