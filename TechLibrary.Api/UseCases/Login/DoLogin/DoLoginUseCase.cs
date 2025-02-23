@@ -14,7 +14,11 @@ public class DoLoginUseCase {
 
         // Check if the user exists
         // If not, throw an exception
-        var entity = dbContext.Users.FirstOrDefault(user => user.Email.Equals(request.Email)) ?? throw new InvalidLoginException();
+        var entity = dbContext.Users.FirstOrDefault(user => user.Email.Equals(request.Email));
+
+        if(entity is null) {
+            throw new InvalidLoginException();
+        }
 
         // Check if the password is valid
         var cryptography = new BCryptAlgorithm();

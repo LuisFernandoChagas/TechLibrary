@@ -2,7 +2,6 @@
 using TechLibrary.Api.UseCases.Users.Register;
 using TechLibrary.Communication.Requests;
 using TechLibrary.Communication.Responses;
-using TechLibrary.Exception;
 
 namespace TechLibrary.Api.Controllers;
 
@@ -13,23 +12,10 @@ public class UsersController : ControllerBase {
     [ProducesResponseType(typeof(ResponseRegisteredUserJson), StatusCodes.Status201Created)]
     [ProducesResponseType(typeof(ResponseErrorMessagesJson), StatusCodes.Status400BadRequest)]
     public IActionResult Register(RequestUserJson request) {
+        var useCase = new RegisterUserUseCase();
 
-        try {
+        var response = useCase.Execute(request);
 
-            var useCase = new RegisterUserUseCase();
-
-            var response = useCase.Execute(request);
-
-            return Created(string.Empty, response);
-
-        } catch(TechLibraryException ex) {
-            return BadRequest(new ResponseErrorMessagesJson {
-                ErrorMessages = ex.GetErrorMessages()
-            });
-        } catch {
-            return StatusCode(StatusCodes.Status500InternalServerError, new ResponseErrorMessagesJson {
-                ErrorMessages = ["Erro desconhecido"]
-            });
-        }
+        return Created(string.Empty, response);
     }
 }
