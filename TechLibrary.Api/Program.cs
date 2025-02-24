@@ -75,7 +75,7 @@ app.MapControllers();
 app.Run();
 
 SymmetricSecurityKey SecurityKey() {
-    var signingKey = "pxEU1gD8MnPFIM20CINYGvGyK6undjYZ";
+    var signingKey = "mtQYyVTU97wuKgk1ZvNCbS8pDtyONVru";
 
     var symmetricKey = Encoding.UTF8.GetBytes(signingKey);
 

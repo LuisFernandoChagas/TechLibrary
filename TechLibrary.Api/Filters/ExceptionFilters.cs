@@ -11,17 +11,19 @@ public class ExceptionFilters : IExceptionFilter {
         if(context.Exception is TechLibraryException techLibraryException) {
             // Set the status code from the exception
             context.HttpContext.Response.StatusCode = (int) techLibraryException.GetStatusCode();
-            
+
             context.Result = new ObjectResult(new ResponseErrorMessagesJson {
                 ErrorMessages = techLibraryException.GetErrorMessages()
             });
         } else {
             // Set the status code 500 (Internal Server Error)
             context.HttpContext.Response.StatusCode = StatusCodes.Status500InternalServerError;
-            
+
             context.Result = new ObjectResult(new ResponseErrorMessagesJson {
-                ErrorMessages = ["Erro desconhecido"]
+                //ErrorMessages = ["Erro desconhecido"]
+                ErrorMessages = [context.Exception.Message]
             });
-        };
+        }
+        ;
     }
 }

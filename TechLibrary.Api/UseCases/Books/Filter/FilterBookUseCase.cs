@@ -15,7 +15,7 @@ public class FilterBookUseCase {
         // If the title is not null or empty,
         // filter the query by the title
         if(!string.IsNullOrWhiteSpace(request.Title)) {
-            query = query.Where(book => book.Title.Contains(request.Title));
+            query = query.Where(book => book.Title.ToLower().Contains(request.Title.ToLower()));
         }
 
         // Skip the number of books that should be skipped

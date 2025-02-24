@@ -13,7 +13,7 @@ public class LoggedUserService {
 
     public User User(TechLibraryDbContext dbContext) {
         // Get the Authorization header from the request
-        var authentication = _httpContext.Request.Headers["Authorization"].ToString();
+        var authentication = _httpContext.Request.Headers.Authorization.ToString();
 
         // Get the token from the Authorization header
         var token = authentication["Bearer ".Length..].Trim();

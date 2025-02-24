@@ -17,7 +17,7 @@ public class Checkout {
         get; set;
     }
 
-    public DateTime ExpectedReturnedDate {
+    public DateTime ExpectedReturnDate {
         get; set;
     }
 

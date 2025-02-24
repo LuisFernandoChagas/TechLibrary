@@ -14,9 +14,7 @@ public class RegisterBookCheckoutUseCase {
     }
 
     public void Execute(Guid bookId) {
-        // Create a new instance of the DbContext
-        var dbContext = new TechLibraryDbContext();
-
+        using var dbContext = new TechLibraryDbContext();
         // Validate the book
         Validate(dbContext, bookId);
 
@@ -27,7 +25,7 @@ public class RegisterBookCheckoutUseCase {
         var entity = new Domain.Entities.Checkout {
             UserId = user.Id,
             BookId = bookId,
-            ExpectedReturnedDate = DateTime.UtcNow.AddDays(MAX_LOAN_DAYS)
+            ExpectedReturnDate = DateTime.UtcNow.AddDays(MAX_LOAN_DAYS)
         };
 
         // Add the checkout to the database
@@ -37,14 +35,16 @@ public class RegisterBookCheckoutUseCase {
 
     private void Validate(TechLibraryDbContext dbContext, Guid bookId) {
         // Get the book from the database
-        var book = dbContext.Books.FirstOrDefault(book => book.Id == bookId);
+        var book = dbContext.Books.FirstOrDefault(book => book.Id.Equals(bookId));
 
         // If the book is null, throw a NotFoundException
         if(book is null)
             throw new NotFoundException("Livro não encontrado!");
 
         // Get the amount of books that are not returned
-        var amountBookNotReturned = dbContext.Checkouts.Count(checkout => checkout.BookId == bookId && checkout.ReturnedDate == null);
+        var amountBookNotReturned = dbContext
+            .Checkouts
+            .Count(checkout => checkout.BookId.Equals(bookId) && checkout.ReturnedDate == null);
 
         // If the amount of books that are not returned is equal to the amount of books,
         // throw a ConflictException
