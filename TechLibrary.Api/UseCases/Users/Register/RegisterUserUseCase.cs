@@ -11,7 +11,6 @@ namespace TechLibrary.Api.UseCases.Users.Register;
 
 public class RegisterUserUseCase {
     public ResponseRegisteredUserJson Execute(RequestUserJson request) {
-
         // Create the database context
         var dbConext = new TechLibraryDbContext();
 
@@ -42,7 +41,7 @@ public class RegisterUserUseCase {
     }
 
     private static void Validate(RequestUserJson request, TechLibraryDbContext dbContext) {
-
+        // Create a new instance of the RegisterUserValidator
         var validator = new RegisterUserValidator();
 
         // Validate the request

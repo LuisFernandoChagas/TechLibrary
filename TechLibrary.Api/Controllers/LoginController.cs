@@ -7,7 +7,7 @@ namespace TechLibrary.Api.Controllers;
 
 [Route("[controller]")]
 [ApiController]
-public class Login : ControllerBase {
+public class LoginController : ControllerBase {
 
     [HttpPost]
     [ProducesResponseType(typeof(ResponseRegisteredUserJson), StatusCodes.Status200OK)]

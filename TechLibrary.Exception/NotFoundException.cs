@@ -2,14 +2,14 @@
 
 namespace TechLibrary.Exception;
 
-public class InvalidLoginException : TechLibraryException {
-    public InvalidLoginException() : base("Email e/ou senha inválidos.") { }
+public class NotFoundException : TechLibraryException {
+    public NotFoundException(string message) : base(message) { }
 
     public override List<string> GetErrorMessages() {
         return [Message];
     }
 
     public override HttpStatusCode GetStatusCode() {
-        return HttpStatusCode.Unauthorized;
+        return HttpStatusCode.NotFound;
     }
 }

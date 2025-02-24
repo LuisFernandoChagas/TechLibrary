@@ -12,10 +12,9 @@ public class DoLoginUseCase {
         // Create the database context
         var dbContext = new TechLibraryDbContext();
 
-        // Check if the user exists
-        // If not, throw an exception
+        // Check if the user 
         var entity = dbContext.Users.FirstOrDefault(user => user.Email.Equals(request.Email));
-
+        // If not, throw an exception
         if(entity is null) {
             throw new InvalidLoginException();
         }
@@ -23,7 +22,9 @@ public class DoLoginUseCase {
         // Check if the password is valid
         var cryptography = new BCryptAlgorithm();
         var passwordIsValid = cryptography.VerifyPassword(request.Password, entity);
-        if(!passwordIsValid)             throw new InvalidLoginException();
+        // If not, throw an exception
+        if(!passwordIsValid)
+            throw new InvalidLoginException();
 
         // Generate the token
         var tokenGenerator = new JwtTokenGenerator();

@@ -8,6 +8,14 @@ public class TechLibraryDbContext : DbContext{
         get; set;
     }
 
+    public DbSet<Book> Books {
+        get; set;
+    }
+
+    public DbSet<Checkout> Checkouts {
+        get; set;
+    }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
         optionsBuilder.UseSqlite("Data Source=D:\\projetos\\TechLibrary\\TechLibraryDb.db");
     }
